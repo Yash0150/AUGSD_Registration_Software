@@ -12,8 +12,6 @@ app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(cors);
 
-console.log("We are live i guess, this should work");
-
 const client = new MongoClient(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
