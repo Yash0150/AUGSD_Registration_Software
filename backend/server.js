@@ -1,16 +1,14 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const bodyParser = require("body-parser");
-const cors = require("cors");
 require("dotenv/config");
 
 const app = express();
 
 app.listen(process.env.PORT);
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "2mb" }));
 //app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(cors);
 
 const client = new MongoClient(process.env.DB_URI, {
   useNewUrlParser: true,

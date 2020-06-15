@@ -19,7 +19,10 @@
     "mongodb": "^3.5.9"
   },
   "devDependencies": {
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "file-reader": "^1.1.1",
+    "filereader": "^0.10.3"
   }
 }

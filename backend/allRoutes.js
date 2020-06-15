@@ -3,18 +3,29 @@ module.exports = function (app, database) {
   app.get("/preflist", (request, result) => {
     database
       .collection("students")
-      .find({})
-      .toArray((err, list) => {
-        if (err) result.send(err);
-        else result.send(list);
-      });
+      .findOne(
+        { id: request.query.id },
+        { projection: { prefList: true, group: true, _id: false } },
+        (err, list) => {
+          if (err) result.send(err);
+          else result.send(list);
+        }
+      );
   });
 
   // update preference list
   app.put("/preflist", (request, result) => {
     database
       .collection("students")
-      .updateOne({})
+      .updateOne(
+        {
+          id: request.query.id,
+          password: request.query.password,
+        },
+        {
+          prefList: request.query.prefList,
+        }
+      )
       .toArray((err, res) => {
         if (err) result.send(err);
         else result.send("successfully updated");
@@ -25,11 +36,14 @@ module.exports = function (app, database) {
   app.get("/login", (request, result) => {
     database
       .collection("students")
-      .find({})
-      .toArray((err, pwd) => {
-        if (err) result.send(err);
-        else result.send(pwd);
-      });
+      .findOne(
+        { id: request.query.id },
+        { projection: { password: 1, _id: 0 } },
+        (err, pwd) => {
+          if (err) result.send(err);
+          else result.send(pwd);
+        }
+      );
   });
 
   // update password
@@ -43,19 +57,19 @@ module.exports = function (app, database) {
       });
   });
 
-  // get timetables
-  app.get("/tt", (request, result) => {
-    database
-      .collection("timetable")
-      .find({})
-      .toArray((err, ttlist) => {
-        if (err) result.send(err);
-        else result.send(ttlist);
-      });
-  });
-
   //general
   app.get("/", (request, result) => {
     result.send("Hi there!!! This API is working");
+  });
+
+  // temporary
+  // add student data
+  app.post("/students", (request, result) => {
+    let studData = request.body;
+    console.log(studData);
+    database.collection("students").insertOne(studData, (err, res) => {
+      if (err) result.send(err);
+      else result.send(res);
+    });
   });
 };

@@ -1,4 +1,6 @@
+.vscode/
 backend/node_modules/
 backend/.env
-.vscode/
 backend/reqtodo.txt
+backend/test.js
+backend/*.jpg
