@@ -1,4 +1,0 @@
-storing image
-storing student data
-storing passwords
-authenticating when storing preferences
