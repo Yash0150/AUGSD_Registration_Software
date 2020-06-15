@@ -1,5 +1,10 @@
 module.exports = function (app, database) {
-  // get preference list
+  /** get preference list
+   *
+   * @param {string} id, student id
+   * @returns {object} prefList, group; preference list and group(ws/eg)
+   */
+
   app.get("/preflist", (request, result) => {
     database
       .collection("students")
@@ -13,26 +18,32 @@ module.exports = function (app, database) {
       );
   });
 
-  // update preference list
+  /** update preference list
+   *
+   * @param {string} id, student id
+   * @param {string} password, password for the student
+   * @returns {string} success, if operation is successful
+   */
+
   app.put("/preflist", (request, result) => {
     database
       .collection("students")
       .updateOne(
-        {
-          id: request.query.id,
-          password: request.query.password,
-        },
-        {
-          prefList: request.query.prefList,
+        { id: request.body.id, password: request.body.password },
+        { $set: { prefList: request.body.prefList } },
+        (err, res) => {
+          if (err) console.log(err);
+          else result.send("successfully updated");
         }
-      )
-      .toArray((err, res) => {
-        if (err) result.send(err);
-        else result.send("successfully updated");
-      });
+      );
   });
 
-  // get password
+  /** get Password
+   *
+   * @param {string} id, student id
+   * @returns {string} password, return hashed password to be compared
+   */
+
   app.get("/login", (request, result) => {
     database
       .collection("students")
@@ -46,15 +57,23 @@ module.exports = function (app, database) {
       );
   });
 
-  // update password
+  /** forget Password
+   *
+   * @param {string} id, student id
+   * @returns {string} password, return hashed password to be compared
+   */
+
   app.put("/login", (request, result) => {
     database
       .collection("students")
-      .updateOne({})
-      .toArray((err, pwd) => {
-        if (err) result.send(err);
-        else result.send("succesfully updated");
-      });
+      .updateOne(
+        { id: request.body.id },
+        { $set: { password: request.body.password } },
+        (err, res) => {
+          if (err) result.send(err);
+          else result.send("succesfully updated");
+        }
+      );
   });
 
   //general

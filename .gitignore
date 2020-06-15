@@ -2,5 +2,4 @@
 backend/node_modules/
 backend/.env
 backend/reqtodo.txt
-backend/test.js
-backend/*.jpg
+backend/.git/
