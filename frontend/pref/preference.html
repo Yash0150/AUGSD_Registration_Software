@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="../dist/css/tabulator.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../dist/js/tabulator.min.js"></script>
+    <!-- <link href="../dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../dist/js/tabulator.min.js"></script> -->
     </head>
     <body>
       <div class="container-fluid">
@@ -19,8 +19,8 @@
         <a href="https://www.bits-pilani.ac.in/goa/" class="brand-logo"><img src="logo.png" width="170px" height="64px"></a>
         <a href="#" class="brand-logo right"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#" class="logout" >Save Options</a></li>
-          <li><a href="#" class="logout" >Logout</a></li>
+          <li><a href="#" id="saveButton" class="logout" >Save Options</a></li>
+          <li><a href="#" id="logoutButton" class="logout" >Logout</a></li>
       </ul>
       </div>
       </nav>
@@ -30,42 +30,13 @@
          <div class="col-sm-9 col-xl-10 order-2 order-sm-1 mt-3" style="color: #00315F">
            <h3><strong>Preferences</strong></h3>
            <div id="sortablelist" class="list-group mb-4 mt-3" data-id="1">
-             <div class="list-group-item d-flex align-items-center justify-content-between" data-id="2">
-               <div>
-                 <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list"><b>
-                  EG1</b></p>
-               </div>
-             </div>
-             <div class="list-group-item d-flex align-items-center justify-content-between" data-id="3">
-               <div>
-                 <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list"><b>
-                   EG2</b></p>
-               </div>
-             </div>
-             <div class="list-group-item d-flex align-items-center justify-content-between" data-id="4" style="">
-               <div>
-                 <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list"><b>
-                   EG3</b></p>
-               </div>
-             </div>
-             <div class="list-group-item d-flex align-items-center justify-content-between" data-id="5">
-               <div>
-                 <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list"><b>
-                  EG4</b></p>
-               </div>
-             </div>
-             <div class="list-group-item d-flex align-items-center justify-content-between" data-id="6">
-               <div>
-                 <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list"><b>
-                   EG5</b></p>
-               </div>
-             </div>
-             <div class="list-group-item d-flex align-items-center justify-content-between" data-id="7" style="">
-               <div>
-                 <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list"><b>
-                   EG6</b></p>
-               </div>
-           </div>
+              <template class="list-group-item d-flex align-items-center justify-content-between" data-id="2">
+                <div>
+                  <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list">
+                    <b>EG1</b>
+                  </p>
+                </div>
+              </template>
          </div>
        </div>
      </div>
@@ -79,10 +50,9 @@
         }
       </script>
 
-      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="../materialize.js"></script>
       <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
-      <script src="script.js"></script>
+      <script src="../src/pref.js"></script>
     </body>
 </html>
         
