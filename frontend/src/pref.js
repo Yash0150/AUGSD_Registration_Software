@@ -9,6 +9,7 @@ new Sortable(sortablelist, {
   ghostClass: "sortable-ghost",
 });
 
+console.log(localStorage["test"]);
 // populate the list
 // save the list
 // logout
