@@ -1,4 +1,5 @@
 module.exports = function (app, database) {
+  const ref_id = null;
   /** get preference list
    *
    * @param {string} id, student id
@@ -22,6 +23,10 @@ module.exports = function (app, database) {
    *
    * @param {string} id, student id
    * @param {string} password, password for the student
+   * @param {Array} prefList, prefList,
+   *
+   *                  ///// is stored in reverse order //////
+   *
    * @returns {string} success, if operation is successful
    */
 
@@ -29,7 +34,7 @@ module.exports = function (app, database) {
     database
       .collection("students")
       .updateOne(
-        { id: request.body.id, password: request.body.password },
+        { id: request.body.id },
         { $set: { prefList: request.body.prefList } },
         (err, res) => {
           if (err) console.log(err);
@@ -78,6 +83,7 @@ module.exports = function (app, database) {
 
   //general
   app.get("/", (request, result) => {
+    console.log(ref_id);
     result.send("Hi there!!! This API is working");
   });
 

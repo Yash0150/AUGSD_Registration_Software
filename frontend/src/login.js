@@ -9,4 +9,7 @@ document
     details["email"] = profile.getEmail();
     // get the f20.. id
     localStorage["bitsId"] = details["email"].split("@")[0];
+    // id for authentication
+    localStorage["idToken"] = googleUser.getAuthResponse().id_token;
+    console.log(details);
   });

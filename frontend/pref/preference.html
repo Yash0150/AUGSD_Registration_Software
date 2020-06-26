@@ -30,13 +30,13 @@
          <div class="col-sm-9 col-xl-10 order-2 order-sm-1 mt-3" style="color: #00315F">
            <h3><strong>Preferences</strong></h3>
            <div id="sortablelist" class="list-group mb-4 mt-3" data-id="1">
-              <template class="list-group-item d-flex align-items-center justify-content-between" data-id="2">
+              <div class="list-group-item d-flex align-items-center justify-content-between" data-id="2" style="display: none;" id='listItemTemplate'>
                 <div>
                   <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list">
-                    <b>EG1</b>
+                    <b class='ttname'></b>
                   </p>
                 </div>
-              </template>
+              </div>
          </div>
        </div>
      </div>
@@ -52,6 +52,7 @@
 
       <script src="../materialize.js"></script>
       <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
       <script src="../src/pref.js"></script>
     </body>
 </html>
