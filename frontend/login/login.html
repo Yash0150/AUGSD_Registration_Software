@@ -27,6 +27,7 @@
     />
   </head>
   <body>
+    <!-- Navbar -->
     <div class="container-fluid">
       <nav>
         <div class="nav-wrapper" style="background-color: #0a205a;">
@@ -34,42 +35,42 @@
             ><img src="logo.png" width="170px" height="64px"
           /></a>
           <a href="#" class="brand-logo right"></a>
+          <ul
+            id="nav-mobile"
+            class="right hide-on-med-and-down"
+            style="display: none;"
+          >
+            <li><a href="#" id="saveButton" class="logout">Save Options</a></li>
+            <li><a href="#" id="logoutButton" class="logout">Logout</a></li>
+          </ul>
         </div>
       </nav>
     </div>
-    <!--
-    <div class="container">
-      <div class="row login">
-      <div class="col s12 m6 l5 offset-l4" style="margin-top: 60px">
-        <div class="card">
-          <div class="lgsiz">
-            <h3>Login Form</h3>
-          </div>
 
-          <div class="card-content">
-
-            <div class="form-field">
-                <label for="username">Username</label>
-                <input type="text" id="username">
-            </div><br>
-
-            <div class="form-field">
-                <label for="password">Password</label>
-                <input type="password" class="validate" id="password"><br>
-
-            </div><br>
-
-            <div class="form-field center-align">
-                <a class="waves-effect btn hvlog"><i class="material-icons left">cloud</i>Login</a>
-            </div><br>
-        </div>
-      </div>
-      </div>
-          -->
-    <div class="container">
+    <!-- Signin Area -->
+    <div class="container" id="login">
       <div class="g-signin2"></div>
     </div>
 
+    <!-- Preferences Select Area -->
+
+    <div class="container" id='pref'>
+      <div class="row">
+        <div class="col-sm-9 col-xl-10 order-2 order-sm-1 mt-3" style="color: #00315F">
+          <h3><strong>Preferences</strong></h3>
+          <div id="sortablelist" class="list-group mb-4 mt-3" data-id="1">
+            <div class="list-group-item d-flex align-items-center justify-content-between" data-id="2" style="display: none;" id='listItemTemplate'>
+              <div>
+                <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list">
+                  <b class='ttname'></b>
+                </p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
     <footer class="footer" style="color: 001041; padding-top: 43px;">
       <b>ACADEMIC DIVISION BITS PILANI KK BIRLA GOA CAMPUS</b>
     </footer>
