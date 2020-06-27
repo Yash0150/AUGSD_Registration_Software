@@ -21,6 +21,6 @@ client.connect((err, result) => {
   const database = result.db("ttselect");
   require("./allRoutes")(app, database);
   console.log(
-    "success! live on port " + process.env.PORT + database.databaseName
+    "success! live on port " + process.env.PORT + " " + database.databaseName
   );
 });

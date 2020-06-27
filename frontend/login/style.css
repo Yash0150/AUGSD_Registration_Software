@@ -56,9 +56,38 @@ body {
 }
 
 .footer {
-  /*background-color: grey;*/
-  padding-top: 43px;
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  padding: 0rem;
   text-align: center;
   color: #001658;
-  /*padding-left: 300px;*/
+}
+
+.logout {
+  padding-left: 15px;
+  padding-right: 35px;
+  transition-delay: 4s;
+}
+
+.logout:hover {
+  color: grey;
+  font-size: 17px;
+}
+
+.list-group .list-group-item {
+  background-color: rgba(0, 14, 39, 0.9);
+  border-radius: 3px;
+  cursor: move;
+  padding-left: 20px;
+}
+
+.list-group .list-group-item:hover {
+  background-color: rgba(0, 73, 142, 0.5);
+}
+
+.list {
+  font-size: 22px;
+  color: white;
 }

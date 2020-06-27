@@ -6,9 +6,18 @@ const logoutButton = document.querySelector("#logoutButton");
 
 M.AutoInit();
 
+function hash(algo, str) {
+  return crypto.subtle.digest(algo, new TextEncoder().encode(str));
+}
+
+function hex(buff) {
+  return [].map
+    .call(new Uint8Array(buff), (b) => ("00" + b.toString(16)).slice(-2))
+    .join("");
+}
+
 let username = "";
 let pwdHash = "";
-
 // sortable setting:w
 new Sortable(sortablelist, {
   animation: 150,
@@ -20,7 +29,11 @@ new Sortable(sortablelist, {
 loginButton.addEventListener("click", () => {
   username = document.querySelector("#username").value;
   let password = document.querySelector("#password").value;
-  pwdHash = crypto.createHash("sha256").update(password).digest("hex");
+  console.log(username, password);
+  hash("SHA-256", password).then((hashed) => {
+    pwdHash = hex(hashed);
+    console.log(pwdHash);
+  });
   axios
     .get("http://ttselect.herokuapp.com/login", {
       params: {
@@ -28,23 +41,26 @@ loginButton.addEventListener("click", () => {
       },
     })
     .then((pwd) => {
+      console.log(pwd);
       if (pwd.data.password == pwdHash) {
         M.toast({ html: "Login Successful" });
         // make the logout option and save buttons visible
         document.querySelector("#nav-mobile").style.display = "block";
         // make the pref area visible
         document.querySelector("#pref").style.display = "block";
+        console.log(document.querySelector("#pref").style.display);
         // make the sigin invisible
         document.querySelector("#loginArea").style.display = "none";
         // populate preference list
         axios
-          .get("https://ttselect.herokuapp.com/prefList", {
+          .get("http://ttselect.herokuapp.com/prefList", {
             params: {
               id: username,
             },
           })
           .then((res) => {
             // populate the item list
+            console.log("did we get this fari?");
             let group = res.data["group"];
             let prefList = res.data["prefList"];
 

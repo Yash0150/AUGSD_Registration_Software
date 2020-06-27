@@ -34,7 +34,7 @@ module.exports = function (app, database) {
     database
       .collection("students")
       .updateOne(
-        { id: request.body.id },
+        { id: request.body.id, password: request.body.pwd },
         { $set: { prefList: request.body.prefList } },
         (err, res) => {
           if (err) console.log(err);

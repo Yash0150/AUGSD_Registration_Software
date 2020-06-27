@@ -48,50 +48,52 @@
 <!-- signin area-->
     <div class="container" id="loginArea">
       <div class="row login">
-      <div class="col s12 m6 l5 offset-l4" style="margin-top: 60px">
-        <div class="card">
-          <div class="lgsiz">
-            <h3>Login Form</h3>
-          </div>
-
-          <div class="card-content">
-
-            <div class="form-field">
-                <label for="username">Username</label>
-                <input type="text" id="username">
-            </div><br>
-
-            <div class="form-field">
-                <label for="password">Password</label>
-                <input type="password" class="validate" id="password"><br>
-
-            </div><br>
-
-            <div class="form-field center-align">
-                <a class="waves-effect btn hvlog" id="loginButton"><i class="material-icons left">cloud</i>Login</a>
-            </div><br>
-        </div>
-      </div>
-      </div>
-
-
-    <!-- Preference select area -->
-
-    <div class="container" id='pref' style="display: none">
-      <div class="row">
-        <div class="col-sm-9 col-xl-10 order-2 order-sm-1 mt-3" style="color: #00315F">
-          <h3><strong>Preferences</strong></h3>
-          <div id="sortablelist" class="list-group mb-4 mt-3" data-id="1">
-            <div class="list-group-item d-flex align-items-center justify-content-between" data-id="2" style="display: none;" id='listItemTemplate'>
-              <div>
-                <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list">
-                  <b class='ttname'></b>
-                </p>
-              </div>
+        <div class="col s12 m6 l5 offset-l4" style="margin-top: 60px">
+          <div class="card">
+            <div class="lgsiz">
+              <h3>Login Form</h3>
             </div>
+
+            <div class="card-content">
+
+              <div class="form-field">
+                  <label for="username">Username</label>
+                  <input type="text" id="username">
+              </div><br>
+
+              <div class="form-field">
+                  <label for="password">Password</label>
+                  <input type="password" class="validate" id="password"><br>
+
+              </div><br>
+
+              <div class="form-field center-align">
+                  <a class="waves-effect btn hvlog" id="loginButton"><i class="material-icons left">cloud</i>Login</a>
+              </div><br>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Preference select area -->
+
+      <div class="container" id="pref" style="display: none;">
+       <div class="row">
+         <div class="col-sm-9 col-xl-10 order-2 order-sm-1 mt-3" style="color: #00315F">
+           <h3><strong>Preferences</strong></h3>
+           <div id="sortablelist" class="list-group mb-4 mt-3" data-id="1">
+              <div class="list-group-item d-flex align-items-center justify-content-between" data-id="2" style="display: none;" id='listItemTemplate'>
+                <div>
+                  <a href="logo.png" target="_blank" class="mb-0 d-inline-flex align-items-center list">
+                    <b class='ttname'></b>
+                  </p>
+                </div>
+              </div>
+         </div>
+       </div>
+     </div>
+     </div>
 
     <!-- footer -->
     <footer class="footer" style="color: 001041; padding-top: 43px;">
@@ -99,8 +101,9 @@
     </footer>
 
     <!--JavaScript at end of body for optimized loading-->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="../materialize.js"></script>
     <script src="../src/login.js"></script>
   </body>
