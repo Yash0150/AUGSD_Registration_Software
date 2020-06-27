@@ -18,6 +18,7 @@ function hex(buff) {
 
 let username = "";
 let pwdHash = "";
+
 // sortable setting:w
 new Sortable(sortablelist, {
   animation: 150,
@@ -27,13 +28,11 @@ new Sortable(sortablelist, {
 // the signin function
 
 loginButton.addEventListener("click", () => {
+  // disable the login button after one click
+  loginButton.classList.toggle("disabled");
   username = document.querySelector("#username").value;
   let password = document.querySelector("#password").value;
-  console.log(username, password);
-  hash("SHA-256", password).then((hashed) => {
-    pwdHash = hex(hashed);
-    console.log(pwdHash);
-  });
+  hash("SHA-256", password).then((hashed) => (pwdHash = hex(hashed)));
   axios
     .get("http://ttselect.herokuapp.com/login", {
       params: {
@@ -41,14 +40,12 @@ loginButton.addEventListener("click", () => {
       },
     })
     .then((pwd) => {
-      console.log(pwd);
       if (pwd.data.password == pwdHash) {
         M.toast({ html: "Login Successful" });
         // make the logout option and save buttons visible
         document.querySelector("#nav-mobile").style.display = "block";
         // make the pref area visible
         document.querySelector("#pref").style.display = "block";
-        console.log(document.querySelector("#pref").style.display);
         // make the sigin invisible
         document.querySelector("#loginArea").style.display = "none";
         // populate preference list
@@ -60,9 +57,10 @@ loginButton.addEventListener("click", () => {
           })
           .then((res) => {
             // populate the item list
-            console.log("did we get this fari?");
             let group = res.data["group"];
             let prefList = res.data["prefList"];
+
+            prefList.forEach((it) => console.log(it));
 
             prefList.forEach((element) => {
               let newListItem = listItemTemplate.cloneNode(true);
@@ -77,6 +75,7 @@ loginButton.addEventListener("click", () => {
           });
       } else {
         M.toast({ html: "Login failed, please try again" });
+        loginButton.classList.toggle("disabled");
       }
     })
     .catch((err) => {
