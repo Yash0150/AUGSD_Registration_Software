@@ -34,7 +34,7 @@ loginButton.addEventListener("click", () => {
   let password = document.querySelector("#password").value;
   hash("SHA-256", password).then((hashed) => (pwdHash = hex(hashed)));
   axios
-    .get("http://ttselect.herokuapp.com/login", {
+    .get("https://ttselect.herokuapp.com/login", {
       params: {
         id: username,
       },
@@ -50,7 +50,7 @@ loginButton.addEventListener("click", () => {
         document.querySelector("#loginArea").style.display = "none";
         // populate preference list
         axios
-          .get("http://ttselect.herokuapp.com/prefList", {
+          .get("https://ttselect.herokuapp.com/prefList", {
             params: {
               id: username,
             },
@@ -98,7 +98,7 @@ saveButton.addEventListener("click", () => {
   });
 
   axios
-    .put("http://ttselect.herokuapp.com/preflist", {
+    .put("https://ttselect.herokuapp.com/preflist", {
       id: username,
       pwd: pwdHash,
       prefList: finalPrefList,
