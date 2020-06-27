@@ -25,8 +25,6 @@ module.exports = function (app, database) {
    * @param {string} password, password for the student
    * @param {Array} prefList, prefList,
    *
-   *                  ///// is stored in reverse order //////
-   *
    * @returns {string} success, if operation is successful
    */
 
