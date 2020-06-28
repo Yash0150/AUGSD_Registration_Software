@@ -1,6 +1,7 @@
 const loginButton = document.querySelector("#loginButton");
 const listContainer = document.querySelector("#sortablelist");
 const listItemTemplate = document.querySelector("#listItemTemplate");
+const orderTemplate = document.querySelector("#otemp");
 const saveButton = document.querySelector("#saveButton");
 const logoutButton = document.querySelector("#logoutButton");
 
@@ -67,11 +68,11 @@ loginButton.addEventListener("click", () => {
               newListItem.style.display = "block";
               newListItem.querySelector(".ttname").innerText =
                 group + " " + element;
-              let orderMark = listItemTemplate.cloneNode(true);
-              orderMark.style.display = "inline";
-              orderMark.querySelector(".ttname").innerText = prefCount;
+              let orderMark = orderTemplate.cloneNode(true);
+              orderMark.style.display = "block";
+              orderMark.querySelector("#oMark").innerText = prefCount;
               prefCount++;
-              listContainer.appendChild(orderMark);
+              document.querySelector("#orderMarker").appendChild(orderMark);
               listContainer.appendChild(newListItem);
             });
           })
