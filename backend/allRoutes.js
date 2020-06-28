@@ -25,8 +25,6 @@ module.exports = function (app, database) {
    * @param {string} password, password for the student
    * @param {Array} prefList, prefList,
    *
-   *                  ///// is stored in reverse order //////
-   *
    * @returns {string} success, if operation is successful
    */
 
@@ -34,7 +32,7 @@ module.exports = function (app, database) {
     database
       .collection("students")
       .updateOne(
-        { id: request.body.id },
+        { id: request.body.id, password: request.body.pwd },
         { $set: { prefList: request.body.prefList } },
         (err, res) => {
           if (err) console.log(err);
