@@ -60,13 +60,18 @@ loginButton.addEventListener("click", () => {
             let group = res.data["group"];
             let prefList = res.data["prefList"];
 
-            prefList.forEach((it) => console.log(it));
+            let prefCount = 1;
 
             prefList.forEach((element) => {
               let newListItem = listItemTemplate.cloneNode(true);
               newListItem.style.display = "block";
               newListItem.querySelector(".ttname").innerText =
                 group + " " + element;
+              let orderMark = listItemTemplate.cloneNode(true);
+              orderMark.style.display = "inline";
+              orderMark.querySelector(".ttname").innerText = prefCount;
+              prefCount++;
+              listContainer.appendChild(orderMark);
               listContainer.appendChild(newListItem);
             });
           })
