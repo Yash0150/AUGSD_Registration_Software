@@ -97,3 +97,11 @@ body {
   grid-template-columns: 1fr 7fr;
   column-gap: 0.5rem;
 }
+
+#otemp {
+  margin-bottom: 0.5rem;
+}
+
+#listItemTemplate {
+  margin-bottom: 0.5rem;
+}
