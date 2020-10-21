@@ -1,8 +1,8 @@
 const axios = require("axios");
 const crypto = require("crypto");
 
-let pwdHash = crypto.createHash("sha256").update("outsider").digest("hex");
-
+let pwdHash = crypto.createHash("sha256").update("tower").digest("hex");
+/*
 axios
   .get("https://ttselect.herokuapp.com")
   .then((res) => {
@@ -51,21 +51,21 @@ axios
   .catch((err) => {
     console.log(err);
   });
-
+*/
 axios
   .post("http://ttselect.herokuapp.com/students", {
-    name: "eve",
-    id: "f20200233",
+    name: "Oreki",
+    id: "f20200128",
     password: pwdHash,
-    group: "ws",
-    pr: 10,
+    group: "eg",
+    pr: 18,
     prefList: [1, 2, 3, 4, 5, 6, 7, 8, 9],
   })
   .then((res, err) => {
     if (err) console.log(err);
     else console.log("success");
   });
-
+/*
 axios
   .put("http://ttselect.herokuapp.com/login", {
     id: "f20200233",
@@ -77,3 +77,4 @@ axios
   .catch((err) => {
     console.log(err);
   });
+*/

@@ -21,8 +21,6 @@
   },
   "devDependencies": {
     "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
-    "file-reader": "^1.1.1",
-    "filereader": "^0.10.3"
+    "dotenv": "^8.2.0"
   }
 }

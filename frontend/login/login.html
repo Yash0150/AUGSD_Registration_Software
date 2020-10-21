@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1.0"
@@ -47,38 +48,9 @@
     </div>
 
     <!-- signin area-->
-    <div class="container" id="loginArea">
-      <div class="row login">
-        <div class="col s12 m6 l5 offset-l4" style="margin-top: 60px;">
-          <div class="card">
-            <div class="lgsiz">
-              <h3>Login Form</h3>
-            </div>
 
-            <div class="card-content">
-              <div class="form-field">
-                <label for="username">Username</label>
-                <input type="text" id="username" />
-              </div>
-              <br />
-
-              <div class="form-field">
-                <label for="password">Password</label>
-                <input type="password" class="validate" id="password" /><br />
-              </div>
-              <br />
-
-              <div class="form-field center-align">
-                <a class="waves-effect btn hvlog" id="loginButton"
-                  ><i class="material-icons left">cloud</i>Login</a
-                >
-              </div>
-              <br />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id='firebaseui-auth-container'></div>
+    
 
     <!-- Preference select area -->
 
@@ -134,8 +106,30 @@
     </footer>
 
     <!--JavaScript at end of body for optimized loading-->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBGbCn0OJhyWZ6aqaz9lEC5D4FM4h3fCbs",
+        authDomain: "regtimetable-ad309.firebaseapp.com",
+        databaseURL: "https://regtimetable-ad309.firebaseio.com",
+        projectId: "regtimetable-ad309",
+        storageBucket: "regtimetable-ad309.appspot.com",
+        messagingSenderId: "105707632135",
+        appId: "1:105707632135:web:4c6516363961ac1ca05ca2",
+        measurementId: "G-ZL3RRVS0CF"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+    </script>
+    <!-- //<script src="../src/materialize.js"></script> -->
     <script src="../materialize.js"></script>
     <script src="../src/login.js"></script>
   </body>

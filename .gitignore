@@ -4,3 +4,4 @@ backend/.env
 backend/reqtodo.txt
 backend/.git/
 responsiveDesign/
+auth/
